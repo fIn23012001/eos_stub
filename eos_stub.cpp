@@ -4,7 +4,20 @@ static int dummyInt = 1;
 static void* dummyPtr = &dummyInt;
 
 extern "C" {
+
+// РџСЂРёРѕСЂРёС‚РµС‚РЅС‹Р№ bypass
 __declspec(dllexport) int EOS_Auth_Login(...) { return 0; }
+
+typedef struct {
+    int dummy;
+} EOS_Auth_Token;
+
+__declspec(dllexport) int EOS_Auth_CopyUserAuthToken(void* Handle, void* Options, EOS_Auth_Token** OutToken) {
+    static EOS_Auth_Token fakeToken = { 1337 };
+    *OutToken = &fakeToken;
+    return 0;
+}
+
 __declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlocked(...) { return 0; }
 __declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlockedV2(...) { return 0; }
 __declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionByAchievementId(...) { return 0; }
@@ -104,7 +117,6 @@ __declspec(dllexport) int EOS_Audio_StopOutputStream(...) { return 0; }
 __declspec(dllexport) int EOS_Audio_UnregisterUser(...) { return 0; }
 __declspec(dllexport) int EOS_Auth_AddNotifyLoginStatusChanged(...) { return 0; }
 __declspec(dllexport) void* EOS_Auth_CopyIdToken(...) { return dummyPtr; }
-__declspec(dllexport) void* EOS_Auth_CopyUserAuthToken(...) { return dummyPtr; }
 __declspec(dllexport) int EOS_Auth_DeletePersistentAuth(...) { return 0; }
 __declspec(dllexport) void* EOS_Auth_GetLoggedInAccountByIndex(...) { return dummyPtr; }
 __declspec(dllexport) void* EOS_Auth_GetLoggedInAccountsCount(...) { return dummyPtr; }
