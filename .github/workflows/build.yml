@@ -10,20 +10,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up MSVC
-      uses: microsoft/setup-msbuild@v2
-      with:
-        msbuild-architecture: x64
+    - name: Install Visual Studio Build Tools
+      uses: ilammy/msvc-dev-cmd@v1
 
     - name: Build DLL
-      run: |
-        cl /LD eos_stub.cpp /Fe:eos_stub.dll
-        powershell Compress-Archive eos_stub.dll eos_stub.zip
+      run: cl /LD eos_stub.cpp /Fe:eos_stub.dll
 
-    - name: Upload to GitHub Release
+    - name: Zip output
+      run: powershell Compress-Archive eos_stub.dll eos_stub.zip
+
+    - name: Upload release
       uses: softprops/action-gh-release@v1
       with:
         files: eos_stub.zip
