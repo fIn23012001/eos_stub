@@ -20,7 +20,7 @@ jobs:
         cl /LD eos_stub.cpp /Fe:eos_stub.dll
 
     - name: Upload DLL
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: eos_stub.dll
         path: eos_stub.dll
