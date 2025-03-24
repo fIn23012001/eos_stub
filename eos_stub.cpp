@@ -5,7 +5,7 @@ static void* dummyPtr = &dummyInt;
 
 extern "C" {
 
-// РџСЂРёРѕСЂРёС‚РµС‚РЅС‹Р№ bypass
+// РћСЃРЅРѕРІРЅРѕР№ bypass
 __declspec(dllexport) int EOS_Auth_Login(...) { return 0; }
 
 typedef struct {
@@ -16,6 +16,17 @@ __declspec(dllexport) int EOS_Auth_CopyUserAuthToken(void* Handle, void* Options
     static EOS_Auth_Token fakeToken = { 1337 };
     *OutToken = &fakeToken;
     return 0;
+}
+
+
+typedef struct {
+    int dummy;
+} EOS_Auth_Token;
+
+__declspec(dllexport) int EOS_Auth_GetAuthToken(void* Handle, void* Options, EOS_Auth_Token** OutToken) {
+    static EOS_Auth_Token fakeToken = { 1234 };
+    *OutToken = &fakeToken;
+    return 0; // EOS_Success
 }
 
 __declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlocked(...) { return 0; }
