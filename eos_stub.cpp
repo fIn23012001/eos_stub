@@ -4,7 +4,7 @@ static int dummyInt = 1;
 static void* dummyPtr = &dummyInt;
 
 extern "C" {
-
+__declspec(dllexport) int EOS_Auth_Login(...) { return 0; }
 __declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlocked(...) { return 0; }
 __declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlockedV2(...) { return 0; }
 __declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionByAchievementId(...) { return 0; }
@@ -114,7 +114,6 @@ __declspec(dllexport) void* EOS_Auth_GetMergedAccountsCount(...) { return dummyP
 __declspec(dllexport) void* EOS_Auth_GetSelectedAccountId(...) { return dummyPtr; }
 __declspec(dllexport) int EOS_Auth_IdToken_Release(...) { return 0; }
 __declspec(dllexport) int EOS_Auth_LinkAccount(...) { return 0; }
-__declspec(dllexport) int EOS_Auth_Login(...) { return 0; }
 __declspec(dllexport) int EOS_Auth_Logout(...) { return 0; }
 __declspec(dllexport) int EOS_Auth_QueryIdToken(...) { return 0; }
 __declspec(dllexport) int EOS_Auth_RemoveNotifyLoginStatusChanged(...) { return 0; }
