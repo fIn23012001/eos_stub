@@ -1,0 +1,26 @@
+name: Build DLL
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v2
+      with:
+        msbuild-architecture: x64
+
+    - name: Build DLL
+      run: |
+        cl /LD eos_stub.cpp /Fe:eos_stub.dll
+
+    - name: Upload DLL
+      uses: actions/upload-artifact@v3
+      with:
+        name: eos_stub.dll
+        path: eos_stub.dll
