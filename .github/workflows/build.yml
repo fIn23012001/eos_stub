@@ -1,16 +1,19 @@
 name: Build DLL
 
-on: [push, pull_request]
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up MSBuild
+    - name: Set up MSVC
       uses: microsoft/setup-msbuild@v2
       with:
         msbuild-architecture: x64
@@ -18,9 +21,11 @@ jobs:
     - name: Build DLL
       run: |
         cl /LD eos_stub.cpp /Fe:eos_stub.dll
+        powershell Compress-Archive eos_stub.dll eos_stub.zip
 
-    - name: Upload DLL
-      uses: actions/upload-artifact@v3.1.3
+    - name: Upload to GitHub Release
+      uses: softprops/action-gh-release@v1
       with:
-        name: eos_stub.dll
-        path: eos_stub.dll
+        files: eos_stub.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
