@@ -1,683 +1,686 @@
 #include <windows.h>
 
+static int dummyInt = 1;
+static void* dummyPtr = &dummyInt;
+
 extern "C" {
 
-__declspec(dllexport) void EOS_Achievements_AddNotifyAchievementsUnlocked() {}
-__declspec(dllexport) void EOS_Achievements_AddNotifyAchievementsUnlockedV2() {}
-__declspec(dllexport) void EOS_Achievements_CopyAchievementDefinitionByAchievementId() {}
-__declspec(dllexport) void EOS_Achievements_CopyAchievementDefinitionByIndex() {}
-__declspec(dllexport) void EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId() {}
-__declspec(dllexport) void EOS_Achievements_CopyAchievementDefinitionV2ByIndex() {}
-__declspec(dllexport) void EOS_Achievements_CopyPlayerAchievementByAchievementId() {}
-__declspec(dllexport) void EOS_Achievements_CopyPlayerAchievementByIndex() {}
-__declspec(dllexport) void EOS_Achievements_CopyUnlockedAchievementByAchievementId() {}
-__declspec(dllexport) void EOS_Achievements_CopyUnlockedAchievementByIndex() {}
-__declspec(dllexport) void EOS_Achievements_DefinitionV2_Release() {}
-__declspec(dllexport) void EOS_Achievements_Definition_Release() {}
-__declspec(dllexport) void EOS_Achievements_GetAchievementDefinitionCount() {}
-__declspec(dllexport) void EOS_Achievements_GetPlayerAchievementCount() {}
-__declspec(dllexport) void EOS_Achievements_GetUnlockedAchievementCount() {}
-__declspec(dllexport) void EOS_Achievements_PlayerAchievement_Release() {}
-__declspec(dllexport) void EOS_Achievements_QueryDefinitions() {}
-__declspec(dllexport) void EOS_Achievements_QueryPlayerAchievements() {}
-__declspec(dllexport) void EOS_Achievements_RemoveNotifyAchievementsUnlocked() {}
-__declspec(dllexport) void EOS_Achievements_UnlockAchievements() {}
-__declspec(dllexport) void EOS_Achievements_UnlockedAchievement_Release() {}
-__declspec(dllexport) void EOS_ActiveSession_CopyInfo() {}
-__declspec(dllexport) void EOS_ActiveSession_GetRegisteredPlayerByIndex() {}
-__declspec(dllexport) void EOS_ActiveSession_GetRegisteredPlayerCount() {}
-__declspec(dllexport) void EOS_ActiveSession_Info_Release() {}
-__declspec(dllexport) void EOS_ActiveSession_Release() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddExternalIntegrityCatalog() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddNotifyClientIntegrityViolated() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddNotifyMessageToPeer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddNotifyMessageToServer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddNotifyPeerActionRequired() {}
-__declspec(dllexport) void EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged() {}
-__declspec(dllexport) void EOS_AntiCheatClient_BeginSession() {}
-__declspec(dllexport) void EOS_AntiCheatClient_EndSession() {}
-__declspec(dllexport) void EOS_AntiCheatClient_GetProtectMessageOutputLength() {}
-__declspec(dllexport) void EOS_AntiCheatClient_PollStatus() {}
-__declspec(dllexport) void EOS_AntiCheatClient_ProtectMessage() {}
-__declspec(dllexport) void EOS_AntiCheatClient_ReceiveMessageFromPeer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_ReceiveMessageFromServer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RegisterPeer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RemoveNotifyClientIntegrityViolated() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RemoveNotifyMessageToPeer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RemoveNotifyMessageToServer() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RemoveNotifyPeerActionRequired() {}
-__declspec(dllexport) void EOS_AntiCheatClient_RemoveNotifyPeerAuthStatusChanged() {}
-__declspec(dllexport) void EOS_AntiCheatClient_UnprotectMessage() {}
-__declspec(dllexport) void EOS_AntiCheatClient_UnregisterPeer() {}
-__declspec(dllexport) void EOS_AntiCheatServer_AddNotifyClientActionRequired() {}
-__declspec(dllexport) void EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged() {}
-__declspec(dllexport) void EOS_AntiCheatServer_AddNotifyMessageToClient() {}
-__declspec(dllexport) void EOS_AntiCheatServer_BeginSession() {}
-__declspec(dllexport) void EOS_AntiCheatServer_EndSession() {}
-__declspec(dllexport) void EOS_AntiCheatServer_GetProtectMessageOutputLength() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogEvent() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogGameRoundEnd() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogGameRoundStart() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerDespawn() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerRevive() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerSpawn() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerTakeDamage() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerTick() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerUseAbility() {}
-__declspec(dllexport) void EOS_AntiCheatServer_LogPlayerUseWeapon() {}
-__declspec(dllexport) void EOS_AntiCheatServer_ProtectMessage() {}
-__declspec(dllexport) void EOS_AntiCheatServer_ReceiveMessageFromClient() {}
-__declspec(dllexport) void EOS_AntiCheatServer_RegisterClient() {}
-__declspec(dllexport) void EOS_AntiCheatServer_RegisterEvent() {}
-__declspec(dllexport) void EOS_AntiCheatServer_RemoveNotifyClientActionRequired() {}
-__declspec(dllexport) void EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged() {}
-__declspec(dllexport) void EOS_AntiCheatServer_RemoveNotifyMessageToClient() {}
-__declspec(dllexport) void EOS_AntiCheatServer_SetClientDetails() {}
-__declspec(dllexport) void EOS_AntiCheatServer_SetClientNetworkState() {}
-__declspec(dllexport) void EOS_AntiCheatServer_SetGameSessionId() {}
-__declspec(dllexport) void EOS_AntiCheatServer_UnprotectMessage() {}
-__declspec(dllexport) void EOS_AntiCheatServer_UnregisterClient() {}
-__declspec(dllexport) void EOS_Audio_CreateNewInputStream() {}
-__declspec(dllexport) void EOS_Audio_CreateNewOutputStream() {}
-__declspec(dllexport) void EOS_Audio_DestroyInputStream() {}
-__declspec(dllexport) void EOS_Audio_DestroyOutputStream() {}
-__declspec(dllexport) void EOS_Audio_EnableCommunicationsModeOutputDevices() {}
-__declspec(dllexport) void EOS_Audio_GetInputDeviceInfo() {}
-__declspec(dllexport) void EOS_Audio_GetInputStreamInfo() {}
-__declspec(dllexport) void EOS_Audio_GetOutputDeviceInfo() {}
-__declspec(dllexport) void EOS_Audio_GetOutputStreamInfo() {}
-__declspec(dllexport) void EOS_Audio_IsInputStreamDeviceDisconnected() {}
-__declspec(dllexport) void EOS_Audio_IsInputStreamSilent() {}
-__declspec(dllexport) void EOS_Audio_QueryInputDevices() {}
-__declspec(dllexport) void EOS_Audio_QueryOutputDevices() {}
-__declspec(dllexport) void EOS_Audio_RegisterUser() {}
-__declspec(dllexport) void EOS_Audio_RemoveNotifyDevicesChanged() {}
-__declspec(dllexport) void EOS_Audio_SetFeatureEnabledForInputStream() {}
-__declspec(dllexport) void EOS_Audio_SetNotifyDevicesChanged() {}
-__declspec(dllexport) void EOS_Audio_StartInputStream() {}
-__declspec(dllexport) void EOS_Audio_StartOutputStream() {}
-__declspec(dllexport) void EOS_Audio_StopInputStream() {}
-__declspec(dllexport) void EOS_Audio_StopOutputStream() {}
-__declspec(dllexport) void EOS_Audio_UnregisterUser() {}
-__declspec(dllexport) void EOS_Auth_AddNotifyLoginStatusChanged() {}
-__declspec(dllexport) void EOS_Auth_CopyIdToken() {}
-__declspec(dllexport) void EOS_Auth_CopyUserAuthToken() {}
-__declspec(dllexport) void EOS_Auth_DeletePersistentAuth() {}
-__declspec(dllexport) void EOS_Auth_GetLoggedInAccountByIndex() {}
-__declspec(dllexport) void EOS_Auth_GetLoggedInAccountsCount() {}
-__declspec(dllexport) void EOS_Auth_GetLoginStatus() {}
-__declspec(dllexport) void EOS_Auth_GetMergedAccountByIndex() {}
-__declspec(dllexport) void EOS_Auth_GetMergedAccountsCount() {}
-__declspec(dllexport) void EOS_Auth_GetSelectedAccountId() {}
-__declspec(dllexport) void EOS_Auth_IdToken_Release() {}
-__declspec(dllexport) void EOS_Auth_LinkAccount() {}
-__declspec(dllexport) void EOS_Auth_Login() {}
-__declspec(dllexport) void EOS_Auth_Logout() {}
-__declspec(dllexport) void EOS_Auth_QueryIdToken() {}
-__declspec(dllexport) void EOS_Auth_RemoveNotifyLoginStatusChanged() {}
-__declspec(dllexport) void EOS_Auth_Token_Release() {}
-__declspec(dllexport) void EOS_Auth_VerifyIdToken() {}
-__declspec(dllexport) void EOS_Auth_VerifyUserAuth() {}
-__declspec(dllexport) void EOS_BeginScopeEvent() {}
-__declspec(dllexport) void EOS_BroadcastAudio_CreateNewInputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_CreateNewOutputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_DestroyInputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_DestroyOutputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_GetCurrentGainLevel() {}
-__declspec(dllexport) void EOS_BroadcastAudio_GetCurrentMicAmplitude() {}
-__declspec(dllexport) void EOS_BroadcastAudio_GetInputStreamInfo() {}
-__declspec(dllexport) void EOS_BroadcastAudio_GetOutputStreamInfo() {}
-__declspec(dllexport) void EOS_BroadcastAudio_PushPacketToOutputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_SetEncoderSettings() {}
-__declspec(dllexport) void EOS_BroadcastAudio_SetMicProcessingSettings() {}
-__declspec(dllexport) void EOS_BroadcastAudio_StartInputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_StartOutputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_StopInputStream() {}
-__declspec(dllexport) void EOS_BroadcastAudio_StopOutputStream() {}
-__declspec(dllexport) void EOS_ByteArray_ToString() {}
-__declspec(dllexport) void EOS_Connect_AddNotifyAuthExpiration() {}
-__declspec(dllexport) void EOS_Connect_AddNotifyLoginStatusChanged() {}
-__declspec(dllexport) void EOS_Connect_CopyIdToken() {}
-__declspec(dllexport) void EOS_Connect_CopyProductUserExternalAccountByAccountId() {}
-__declspec(dllexport) void EOS_Connect_CopyProductUserExternalAccountByAccountType() {}
-__declspec(dllexport) void EOS_Connect_CopyProductUserExternalAccountByIndex() {}
-__declspec(dllexport) void EOS_Connect_CopyProductUserInfo() {}
-__declspec(dllexport) void EOS_Connect_CreateDeviceId() {}
-__declspec(dllexport) void EOS_Connect_CreateUser() {}
-__declspec(dllexport) void EOS_Connect_DeleteDeviceId() {}
-__declspec(dllexport) void EOS_Connect_ExternalAccountInfo_Release() {}
-__declspec(dllexport) void EOS_Connect_GetExternalAccountMapping() {}
-__declspec(dllexport) void EOS_Connect_GetLoggedInUserByIndex() {}
-__declspec(dllexport) void EOS_Connect_GetLoggedInUsersCount() {}
-__declspec(dllexport) void EOS_Connect_GetLoginStatus() {}
-__declspec(dllexport) void EOS_Connect_GetProductUserExternalAccountCount() {}
-__declspec(dllexport) void EOS_Connect_GetProductUserIdMapping() {}
-__declspec(dllexport) void EOS_Connect_IdToken_Release() {}
-__declspec(dllexport) void EOS_Connect_LinkAccount() {}
-__declspec(dllexport) void EOS_Connect_Login() {}
-__declspec(dllexport) void EOS_Connect_Logout() {}
-__declspec(dllexport) void EOS_Connect_QueryExternalAccountMappings() {}
-__declspec(dllexport) void EOS_Connect_QueryProductUserIdMappings() {}
-__declspec(dllexport) void EOS_Connect_RemoveNotifyAuthExpiration() {}
-__declspec(dllexport) void EOS_Connect_RemoveNotifyLoginStatusChanged() {}
-__declspec(dllexport) void EOS_Connect_TransferDeviceIdAccount() {}
-__declspec(dllexport) void EOS_Connect_UnlinkAccount() {}
-__declspec(dllexport) void EOS_Connect_VerifyIdToken() {}
-__declspec(dllexport) void EOS_ContinuanceToken_ToString() {}
-__declspec(dllexport) void EOS_CustomInvites_AcceptRequestToJoin() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyCustomInviteAccepted() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyCustomInviteReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyCustomInviteRejected() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyRequestToJoinAccepted() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyRequestToJoinReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyRequestToJoinRejected() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifyRequestToJoinResponseReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_AddNotifySendCustomNativeInviteRequested() {}
-__declspec(dllexport) void EOS_CustomInvites_FinalizeInvite() {}
-__declspec(dllexport) void EOS_CustomInvites_RejectRequestToJoin() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyCustomInviteAccepted() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyCustomInviteReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyCustomInviteRejected() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyRequestToJoinAccepted() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyRequestToJoinReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyRequestToJoinRejected() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifyRequestToJoinResponseReceived() {}
-__declspec(dllexport) void EOS_CustomInvites_RemoveNotifySendCustomNativeInviteRequested() {}
-__declspec(dllexport) void EOS_CustomInvites_SendCustomInvite() {}
-__declspec(dllexport) void EOS_CustomInvites_SendRequestToJoin() {}
-__declspec(dllexport) void EOS_CustomInvites_SetCustomInvite() {}
-__declspec(dllexport) void EOS_EApplicationStatus_ToString() {}
-__declspec(dllexport) void EOS_ENetworkStatus_ToString() {}
-__declspec(dllexport) void EOS_EResult_IsOperationComplete() {}
-__declspec(dllexport) void EOS_EResult_ToString() {}
-__declspec(dllexport) void EOS_Ecom_CatalogItem_Release() {}
-__declspec(dllexport) void EOS_Ecom_CatalogOffer_Release() {}
-__declspec(dllexport) void EOS_Ecom_CatalogRelease_Release() {}
-__declspec(dllexport) void EOS_Ecom_Checkout() {}
-__declspec(dllexport) void EOS_Ecom_CopyEntitlementById() {}
-__declspec(dllexport) void EOS_Ecom_CopyEntitlementByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyEntitlementByNameAndIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyItemById() {}
-__declspec(dllexport) void EOS_Ecom_CopyItemImageInfoByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyItemReleaseByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyLastRedeemedEntitlementByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyOfferById() {}
-__declspec(dllexport) void EOS_Ecom_CopyOfferByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyOfferImageInfoByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyOfferItemByIndex() {}
-__declspec(dllexport) void EOS_Ecom_CopyTransactionById() {}
-__declspec(dllexport) void EOS_Ecom_CopyTransactionByIndex() {}
-__declspec(dllexport) void EOS_Ecom_Entitlement_Release() {}
-__declspec(dllexport) void EOS_Ecom_GetEntitlementsByNameCount() {}
-__declspec(dllexport) void EOS_Ecom_GetEntitlementsCount() {}
-__declspec(dllexport) void EOS_Ecom_GetItemImageInfoCount() {}
-__declspec(dllexport) void EOS_Ecom_GetItemReleaseCount() {}
-__declspec(dllexport) void EOS_Ecom_GetLastRedeemedEntitlementsCount() {}
-__declspec(dllexport) void EOS_Ecom_GetOfferCount() {}
-__declspec(dllexport) void EOS_Ecom_GetOfferImageInfoCount() {}
-__declspec(dllexport) void EOS_Ecom_GetOfferItemCount() {}
-__declspec(dllexport) void EOS_Ecom_GetTransactionCount() {}
-__declspec(dllexport) void EOS_Ecom_KeyImageInfo_Release() {}
-__declspec(dllexport) void EOS_Ecom_QueryEntitlementToken() {}
-__declspec(dllexport) void EOS_Ecom_QueryEntitlements() {}
-__declspec(dllexport) void EOS_Ecom_QueryOffers() {}
-__declspec(dllexport) void EOS_Ecom_QueryOwnership() {}
-__declspec(dllexport) void EOS_Ecom_QueryOwnershipBySandboxIds() {}
-__declspec(dllexport) void EOS_Ecom_QueryOwnershipToken() {}
-__declspec(dllexport) void EOS_Ecom_RedeemEntitlements() {}
-__declspec(dllexport) void EOS_Ecom_Transaction_CopyEntitlementByIndex() {}
-__declspec(dllexport) void EOS_Ecom_Transaction_GetEntitlementsCount() {}
-__declspec(dllexport) void EOS_Ecom_Transaction_GetTransactionId() {}
-__declspec(dllexport) void EOS_Ecom_Transaction_Release() {}
-__declspec(dllexport) void EOS_EndScopeEvent() {}
-__declspec(dllexport) void EOS_EpicAccountId_FromString() {}
-__declspec(dllexport) void EOS_EpicAccountId_IsValid() {}
-__declspec(dllexport) void EOS_EpicAccountId_ToString() {}
-__declspec(dllexport) void EOS_Friends_AcceptInvite() {}
-__declspec(dllexport) void EOS_Friends_AddNotifyBlockedUsersUpdate() {}
-__declspec(dllexport) void EOS_Friends_AddNotifyFriendsUpdate() {}
-__declspec(dllexport) void EOS_Friends_GetBlockedUserAtIndex() {}
-__declspec(dllexport) void EOS_Friends_GetBlockedUsersCount() {}
-__declspec(dllexport) void EOS_Friends_GetFriendAtIndex() {}
-__declspec(dllexport) void EOS_Friends_GetFriendsCount() {}
-__declspec(dllexport) void EOS_Friends_GetStatus() {}
-__declspec(dllexport) void EOS_Friends_QueryFriends() {}
-__declspec(dllexport) void EOS_Friends_RejectInvite() {}
-__declspec(dllexport) void EOS_Friends_RemoveNotifyBlockedUsersUpdate() {}
-__declspec(dllexport) void EOS_Friends_RemoveNotifyFriendsUpdate() {}
-__declspec(dllexport) void EOS_Friends_SendInvite() {}
-__declspec(dllexport) void EOS_GetVersion() {}
-__declspec(dllexport) void EOS_Initialize() {}
-__declspec(dllexport) void EOS_IntegratedPlatformOptionsContainer_Add() {}
-__declspec(dllexport) void EOS_IntegratedPlatformOptionsContainer_Release() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_AddNotifyUserLoginStatusChanged() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_ClearUserPreLogoutCallback() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_CreateIntegratedPlatformOptionsContainer() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_FinalizeDeferredUserLogout() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_RemoveNotifyUserLoginStatusChanged() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_SetUserLoginStatus() {}
-__declspec(dllexport) void EOS_IntegratedPlatform_SetUserPreLogoutCallback() {}
-__declspec(dllexport) void EOS_KWS_AddNotifyPermissionsUpdateReceived() {}
-__declspec(dllexport) void EOS_KWS_CopyPermissionByIndex() {}
-__declspec(dllexport) void EOS_KWS_CreateUser() {}
-__declspec(dllexport) void EOS_KWS_GetPermissionByKey() {}
-__declspec(dllexport) void EOS_KWS_GetPermissionsCount() {}
-__declspec(dllexport) void EOS_KWS_PermissionStatus_Release() {}
-__declspec(dllexport) void EOS_KWS_QueryAgeGate() {}
-__declspec(dllexport) void EOS_KWS_QueryPermissions() {}
-__declspec(dllexport) void EOS_KWS_RemoveNotifyPermissionsUpdateReceived() {}
-__declspec(dllexport) void EOS_KWS_RequestPermissions() {}
-__declspec(dllexport) void EOS_KWS_UpdateParentEmail() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardDefinitionByIndex() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardRecordByIndex() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardRecordByUserId() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardUserScoreByIndex() {}
-__declspec(dllexport) void EOS_Leaderboards_CopyLeaderboardUserScoreByUserId() {}
-__declspec(dllexport) void EOS_Leaderboards_Definition_Release() {}
-__declspec(dllexport) void EOS_Leaderboards_GetLeaderboardDefinitionCount() {}
-__declspec(dllexport) void EOS_Leaderboards_GetLeaderboardRecordCount() {}
-__declspec(dllexport) void EOS_Leaderboards_GetLeaderboardUserScoreCount() {}
-__declspec(dllexport) void EOS_Leaderboards_LeaderboardDefinition_Release() {}
-__declspec(dllexport) void EOS_Leaderboards_LeaderboardRecord_Release() {}
-__declspec(dllexport) void EOS_Leaderboards_LeaderboardUserScore_Release() {}
-__declspec(dllexport) void EOS_Leaderboards_QueryLeaderboardDefinitions() {}
-__declspec(dllexport) void EOS_Leaderboards_QueryLeaderboardRanks() {}
-__declspec(dllexport) void EOS_Leaderboards_QueryLeaderboardUserScores() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyAttributeByIndex() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyAttributeByKey() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyInfo() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyMemberAttributeByIndex() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyMemberAttributeByKey() {}
-__declspec(dllexport) void EOS_LobbyDetails_CopyMemberInfo() {}
-__declspec(dllexport) void EOS_LobbyDetails_GetAttributeCount() {}
-__declspec(dllexport) void EOS_LobbyDetails_GetLobbyOwner() {}
-__declspec(dllexport) void EOS_LobbyDetails_GetMemberAttributeCount() {}
-__declspec(dllexport) void EOS_LobbyDetails_GetMemberByIndex() {}
-__declspec(dllexport) void EOS_LobbyDetails_GetMemberCount() {}
-__declspec(dllexport) void EOS_LobbyDetails_Info_Release() {}
-__declspec(dllexport) void EOS_LobbyDetails_MemberInfo_Release() {}
-__declspec(dllexport) void EOS_LobbyDetails_Release() {}
-__declspec(dllexport) void EOS_LobbyModification_AddAttribute() {}
-__declspec(dllexport) void EOS_LobbyModification_AddMemberAttribute() {}
-__declspec(dllexport) void EOS_LobbyModification_Release() {}
-__declspec(dllexport) void EOS_LobbyModification_RemoveAttribute() {}
-__declspec(dllexport) void EOS_LobbyModification_RemoveMemberAttribute() {}
-__declspec(dllexport) void EOS_LobbyModification_SetAllowedPlatformIds() {}
-__declspec(dllexport) void EOS_LobbyModification_SetBucketId() {}
-__declspec(dllexport) void EOS_LobbyModification_SetInvitesAllowed() {}
-__declspec(dllexport) void EOS_LobbyModification_SetMaxMembers() {}
-__declspec(dllexport) void EOS_LobbyModification_SetPermissionLevel() {}
-__declspec(dllexport) void EOS_LobbySearch_CopySearchResultByIndex() {}
-__declspec(dllexport) void EOS_LobbySearch_Find() {}
-__declspec(dllexport) void EOS_LobbySearch_GetSearchResultCount() {}
-__declspec(dllexport) void EOS_LobbySearch_Release() {}
-__declspec(dllexport) void EOS_LobbySearch_RemoveParameter() {}
-__declspec(dllexport) void EOS_LobbySearch_SetLobbyId() {}
-__declspec(dllexport) void EOS_LobbySearch_SetMaxResults() {}
-__declspec(dllexport) void EOS_LobbySearch_SetParameter() {}
-__declspec(dllexport) void EOS_LobbySearch_SetTargetUserId() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyJoinLobbyAccepted() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLeaveLobbyRequested() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyInviteAccepted() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyInviteReceived() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyInviteRejected() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyMemberStatusReceived() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyMemberUpdateReceived() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyLobbyUpdateReceived() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifyRTCRoomConnectionChanged() {}
-__declspec(dllexport) void EOS_Lobby_AddNotifySendLobbyNativeInviteRequested() {}
-__declspec(dllexport) void EOS_Lobby_Attribute_Release() {}
-__declspec(dllexport) void EOS_Lobby_CopyLobbyDetailsHandle() {}
-__declspec(dllexport) void EOS_Lobby_CopyLobbyDetailsHandleByInviteId() {}
-__declspec(dllexport) void EOS_Lobby_CopyLobbyDetailsHandleByUiEventId() {}
-__declspec(dllexport) void EOS_Lobby_CreateLobby() {}
-__declspec(dllexport) void EOS_Lobby_CreateLobbySearch() {}
-__declspec(dllexport) void EOS_Lobby_DestroyLobby() {}
-__declspec(dllexport) void EOS_Lobby_GetConnectString() {}
-__declspec(dllexport) void EOS_Lobby_GetInviteCount() {}
-__declspec(dllexport) void EOS_Lobby_GetInviteIdByIndex() {}
-__declspec(dllexport) void EOS_Lobby_GetRTCRoomName() {}
-__declspec(dllexport) void EOS_Lobby_HardMuteMember() {}
-__declspec(dllexport) void EOS_Lobby_IsRTCRoomConnected() {}
-__declspec(dllexport) void EOS_Lobby_JoinLobby() {}
-__declspec(dllexport) void EOS_Lobby_JoinLobbyById() {}
-__declspec(dllexport) void EOS_Lobby_KickMember() {}
-__declspec(dllexport) void EOS_Lobby_LeaveLobby() {}
-__declspec(dllexport) void EOS_Lobby_ParseConnectString() {}
-__declspec(dllexport) void EOS_Lobby_PromoteMember() {}
-__declspec(dllexport) void EOS_Lobby_QueryInvites() {}
-__declspec(dllexport) void EOS_Lobby_RejectInvite() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyJoinLobbyAccepted() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLeaveLobbyRequested() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyInviteAccepted() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyInviteReceived() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyInviteRejected() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyMemberUpdateReceived() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyLobbyUpdateReceived() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged() {}
-__declspec(dllexport) void EOS_Lobby_RemoveNotifySendLobbyNativeInviteRequested() {}
-__declspec(dllexport) void EOS_Lobby_SendInvite() {}
-__declspec(dllexport) void EOS_Lobby_UpdateLobby() {}
-__declspec(dllexport) void EOS_Lobby_UpdateLobbyModification() {}
-__declspec(dllexport) void EOS_Logging_SetCallback() {}
-__declspec(dllexport) void EOS_Logging_SetLogLevel() {}
-__declspec(dllexport) void EOS_Mercury_Initialize() {}
-__declspec(dllexport) void EOS_Mercury_Shutdown() {}
-__declspec(dllexport) void EOS_Mercury_Tick() {}
-__declspec(dllexport) void EOS_Metrics_BeginPlayerSession() {}
-__declspec(dllexport) void EOS_Metrics_EndPlayerSession() {}
-__declspec(dllexport) void EOS_Mods_CopyModInfo() {}
-__declspec(dllexport) void EOS_Mods_EnumerateMods() {}
-__declspec(dllexport) void EOS_Mods_InstallMod() {}
-__declspec(dllexport) void EOS_Mods_ModInfo_Release() {}
-__declspec(dllexport) void EOS_Mods_UninstallMod() {}
-__declspec(dllexport) void EOS_Mods_UpdateMod() {}
-__declspec(dllexport) void EOS_P2P_AcceptConnection() {}
-__declspec(dllexport) void EOS_P2P_AddNotifyIncomingPacketQueueFull() {}
-__declspec(dllexport) void EOS_P2P_AddNotifyPeerConnectionClosed() {}
-__declspec(dllexport) void EOS_P2P_AddNotifyPeerConnectionEstablished() {}
-__declspec(dllexport) void EOS_P2P_AddNotifyPeerConnectionInterrupted() {}
-__declspec(dllexport) void EOS_P2P_AddNotifyPeerConnectionRequest() {}
-__declspec(dllexport) void EOS_P2P_ClearPacketQueue() {}
-__declspec(dllexport) void EOS_P2P_CloseConnection() {}
-__declspec(dllexport) void EOS_P2P_CloseConnections() {}
-__declspec(dllexport) void EOS_P2P_GetNATType() {}
-__declspec(dllexport) void EOS_P2P_GetNextReceivedPacketSize() {}
-__declspec(dllexport) void EOS_P2P_GetPacketQueueInfo() {}
-__declspec(dllexport) void EOS_P2P_GetPortRange() {}
-__declspec(dllexport) void EOS_P2P_GetRelayControl() {}
-__declspec(dllexport) void EOS_P2P_QueryNATType() {}
-__declspec(dllexport) void EOS_P2P_ReceivePacket() {}
-__declspec(dllexport) void EOS_P2P_RemoveNotifyIncomingPacketQueueFull() {}
-__declspec(dllexport) void EOS_P2P_RemoveNotifyPeerConnectionClosed() {}
-__declspec(dllexport) void EOS_P2P_RemoveNotifyPeerConnectionEstablished() {}
-__declspec(dllexport) void EOS_P2P_RemoveNotifyPeerConnectionInterrupted() {}
-__declspec(dllexport) void EOS_P2P_RemoveNotifyPeerConnectionRequest() {}
-__declspec(dllexport) void EOS_P2P_SendPacket() {}
-__declspec(dllexport) void EOS_P2P_SetPacketQueueSize() {}
-__declspec(dllexport) void EOS_P2P_SetPortRange() {}
-__declspec(dllexport) void EOS_P2P_SetRelayControl() {}
-__declspec(dllexport) void EOS_Platform_CheckForLauncherAndRestart() {}
-__declspec(dllexport) void EOS_Platform_Create() {}
-__declspec(dllexport) void EOS_Platform_GetAchievementsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetActiveCountryCode() {}
-__declspec(dllexport) void EOS_Platform_GetActiveLocaleCode() {}
-__declspec(dllexport) void EOS_Platform_GetAntiCheatClientInterface() {}
-__declspec(dllexport) void EOS_Platform_GetAntiCheatServerInterface() {}
-__declspec(dllexport) void EOS_Platform_GetApplicationStatus() {}
-__declspec(dllexport) void EOS_Platform_GetAuthInterface() {}
-__declspec(dllexport) void EOS_Platform_GetConnectInterface() {}
-__declspec(dllexport) void EOS_Platform_GetCustomInvitesInterface() {}
-__declspec(dllexport) void EOS_Platform_GetDesktopCrossplayStatus() {}
-__declspec(dllexport) void EOS_Platform_GetEcomInterface() {}
-__declspec(dllexport) void EOS_Platform_GetFriendsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetIntegratedPlatformInterface() {}
-__declspec(dllexport) void EOS_Platform_GetKWSInterface() {}
-__declspec(dllexport) void EOS_Platform_GetLeaderboardsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetLobbyInterface() {}
-__declspec(dllexport) void EOS_Platform_GetMetricsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetModsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetNetworkStatus() {}
-__declspec(dllexport) void EOS_Platform_GetOverrideCountryCode() {}
-__declspec(dllexport) void EOS_Platform_GetOverrideLocaleCode() {}
-__declspec(dllexport) void EOS_Platform_GetP2PInterface() {}
-__declspec(dllexport) void EOS_Platform_GetPlayerDataStorageInterface() {}
-__declspec(dllexport) void EOS_Platform_GetPresenceInterface() {}
-__declspec(dllexport) void EOS_Platform_GetProgressionSnapshotInterface() {}
-__declspec(dllexport) void EOS_Platform_GetRTCAdminInterface() {}
-__declspec(dllexport) void EOS_Platform_GetRTCInterface() {}
-__declspec(dllexport) void EOS_Platform_GetReportsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetSanctionsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetSessionsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetStatsInterface() {}
-__declspec(dllexport) void EOS_Platform_GetTitleStorageInterface() {}
-__declspec(dllexport) void EOS_Platform_GetUIInterface() {}
-__declspec(dllexport) void EOS_Platform_GetUserInfoInterface() {}
-__declspec(dllexport) void EOS_Platform_Release() {}
-__declspec(dllexport) void EOS_Platform_SetApplicationStatus() {}
-__declspec(dllexport) void EOS_Platform_SetNetworkStatus() {}
-__declspec(dllexport) void EOS_Platform_SetOverrideCountryCode() {}
-__declspec(dllexport) void EOS_Platform_SetOverrideLocaleCode() {}
-__declspec(dllexport) void EOS_Platform_Tick() {}
-__declspec(dllexport) void EOS_PlayerDataStorageFileTransferRequest_CancelRequest() {}
-__declspec(dllexport) void EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState() {}
-__declspec(dllexport) void EOS_PlayerDataStorageFileTransferRequest_GetFilename() {}
-__declspec(dllexport) void EOS_PlayerDataStorageFileTransferRequest_Release() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_CopyFileMetadataAtIndex() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_CopyFileMetadataByFilename() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_DeleteCache() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_DeleteFile() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_DuplicateFile() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_FileMetadata_Release() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_GetFileMetadataCount() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_QueryFile() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_QueryFileList() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_ReadFile() {}
-__declspec(dllexport) void EOS_PlayerDataStorage_WriteFile() {}
-__declspec(dllexport) void EOS_PresenceModification_DeleteData() {}
-__declspec(dllexport) void EOS_PresenceModification_Release() {}
-__declspec(dllexport) void EOS_PresenceModification_SetData() {}
-__declspec(dllexport) void EOS_PresenceModification_SetJoinInfo() {}
-__declspec(dllexport) void EOS_PresenceModification_SetRawRichText() {}
-__declspec(dllexport) void EOS_PresenceModification_SetStatus() {}
-__declspec(dllexport) void EOS_Presence_AddNotifyJoinGameAccepted() {}
-__declspec(dllexport) void EOS_Presence_AddNotifyOnPresenceChanged() {}
-__declspec(dllexport) void EOS_Presence_CopyPresence() {}
-__declspec(dllexport) void EOS_Presence_CreatePresenceModification() {}
-__declspec(dllexport) void EOS_Presence_GetJoinInfo() {}
-__declspec(dllexport) void EOS_Presence_HasPresence() {}
-__declspec(dllexport) void EOS_Presence_Info_Release() {}
-__declspec(dllexport) void EOS_Presence_QueryPresence() {}
-__declspec(dllexport) void EOS_Presence_RemoveNotifyJoinGameAccepted() {}
-__declspec(dllexport) void EOS_Presence_RemoveNotifyOnPresenceChanged() {}
-__declspec(dllexport) void EOS_Presence_SetPresence() {}
-__declspec(dllexport) void EOS_ProductUserId_FromString() {}
-__declspec(dllexport) void EOS_ProductUserId_IsValid() {}
-__declspec(dllexport) void EOS_ProductUserId_ToString() {}
-__declspec(dllexport) void EOS_ProgressionSnapshot_AddProgression() {}
-__declspec(dllexport) void EOS_ProgressionSnapshot_BeginSnapshot() {}
-__declspec(dllexport) void EOS_ProgressionSnapshot_DeleteSnapshot() {}
-__declspec(dllexport) void EOS_ProgressionSnapshot_EndSnapshot() {}
-__declspec(dllexport) void EOS_ProgressionSnapshot_SubmitSnapshot() {}
-__declspec(dllexport) void EOS_RTCAdmin_CopyUserTokenByIndex() {}
-__declspec(dllexport) void EOS_RTCAdmin_CopyUserTokenByUserId() {}
-__declspec(dllexport) void EOS_RTCAdmin_Kick() {}
-__declspec(dllexport) void EOS_RTCAdmin_QueryJoinRoomToken() {}
-__declspec(dllexport) void EOS_RTCAdmin_SetParticipantHardMute() {}
-__declspec(dllexport) void EOS_RTCAdmin_UserToken_Release() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyAudioBeforeRender() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyAudioBeforeSend() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyAudioDevicesChanged() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyAudioInputState() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyAudioOutputState() {}
-__declspec(dllexport) void EOS_RTCAudio_AddNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCAudio_CopyInputDeviceInformationByIndex() {}
-__declspec(dllexport) void EOS_RTCAudio_CopyOutputDeviceInformationByIndex() {}
-__declspec(dllexport) void EOS_RTCAudio_GetAudioInputDeviceByIndex() {}
-__declspec(dllexport) void EOS_RTCAudio_GetAudioInputDevicesCount() {}
-__declspec(dllexport) void EOS_RTCAudio_GetAudioOutputDeviceByIndex() {}
-__declspec(dllexport) void EOS_RTCAudio_GetAudioOutputDevicesCount() {}
-__declspec(dllexport) void EOS_RTCAudio_GetInputDevicesCount() {}
-__declspec(dllexport) void EOS_RTCAudio_GetOutputDevicesCount() {}
-__declspec(dllexport) void EOS_RTCAudio_InputDeviceInformation_Release() {}
-__declspec(dllexport) void EOS_RTCAudio_OutputDeviceInformation_Release() {}
-__declspec(dllexport) void EOS_RTCAudio_QueryInputDevicesInformation() {}
-__declspec(dllexport) void EOS_RTCAudio_QueryOutputDevicesInformation() {}
-__declspec(dllexport) void EOS_RTCAudio_RegisterPlatformAudioUser() {}
-__declspec(dllexport) void EOS_RTCAudio_RegisterPlatformUser() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyAudioBeforeRender() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyAudioBeforeSend() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyAudioDevicesChanged() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyAudioInputState() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyAudioOutputState() {}
-__declspec(dllexport) void EOS_RTCAudio_RemoveNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCAudio_SendAudio() {}
-__declspec(dllexport) void EOS_RTCAudio_SetAudioInputSettings() {}
-__declspec(dllexport) void EOS_RTCAudio_SetAudioOutputSettings() {}
-__declspec(dllexport) void EOS_RTCAudio_SetInputDeviceSettings() {}
-__declspec(dllexport) void EOS_RTCAudio_SetOutputDeviceSettings() {}
-__declspec(dllexport) void EOS_RTCAudio_SetPosition() {}
-__declspec(dllexport) void EOS_RTCAudio_UnregisterPlatformAudioUser() {}
-__declspec(dllexport) void EOS_RTCAudio_UnregisterPlatformUser() {}
-__declspec(dllexport) void EOS_RTCAudio_UpdateParticipantVolume() {}
-__declspec(dllexport) void EOS_RTCAudio_UpdateReceiving() {}
-__declspec(dllexport) void EOS_RTCAudio_UpdateReceivingVolume() {}
-__declspec(dllexport) void EOS_RTCAudio_UpdateSending() {}
-__declspec(dllexport) void EOS_RTCAudio_UpdateSendingVolume() {}
-__declspec(dllexport) void EOS_RTCData_AddNotifyDataReceived() {}
-__declspec(dllexport) void EOS_RTCData_AddNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCData_RemoveNotifyDataReceived() {}
-__declspec(dllexport) void EOS_RTCData_RemoveNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCData_SendData() {}
-__declspec(dllexport) void EOS_RTCData_UpdateReceiving() {}
-__declspec(dllexport) void EOS_RTCData_UpdateSending() {}
-__declspec(dllexport) void EOS_RTCVideo_AddNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCVideo_AddNotifyVideoReceived() {}
-__declspec(dllexport) void EOS_RTCVideo_CreateOutgoingVideoFrameFormat() {}
-__declspec(dllexport) void EOS_RTCVideo_RemoveNotifyParticipantUpdated() {}
-__declspec(dllexport) void EOS_RTCVideo_RemoveNotifyVideoReceived() {}
-__declspec(dllexport) void EOS_RTCVideo_SendVideo() {}
-__declspec(dllexport) void EOS_RTCVideo_SetAdaptVideoFrameCallback() {}
-__declspec(dllexport) void EOS_RTCVideo_SetVideoAllocationCallback() {}
-__declspec(dllexport) void EOS_RTCVideo_SetVideoReleaseCallback() {}
-__declspec(dllexport) void EOS_RTCVideo_UpdateReceiving() {}
-__declspec(dllexport) void EOS_RTCVideo_UpdateSending() {}
-__declspec(dllexport) void EOS_RTC_AddNotifyDisconnected() {}
-__declspec(dllexport) void EOS_RTC_AddNotifyParticipantStatusChanged() {}
-__declspec(dllexport) void EOS_RTC_AddNotifyRoomStatisticsUpdated() {}
-__declspec(dllexport) void EOS_RTC_BlockParticipant() {}
-__declspec(dllexport) void EOS_RTC_GetAudioInterface() {}
-__declspec(dllexport) void EOS_RTC_GetDataInterface() {}
-__declspec(dllexport) void EOS_RTC_JoinRoom() {}
-__declspec(dllexport) void EOS_RTC_LeaveRoom() {}
-__declspec(dllexport) void EOS_RTC_RemoveNotifyDisconnected() {}
-__declspec(dllexport) void EOS_RTC_RemoveNotifyParticipantStatusChanged() {}
-__declspec(dllexport) void EOS_RTC_RemoveNotifyRoomStatisticsUpdated() {}
-__declspec(dllexport) void EOS_RTC_SetRoomSetting() {}
-__declspec(dllexport) void EOS_RTC_SetSetting() {}
-__declspec(dllexport) void EOS_Reports_SendPlayerBehaviorReport() {}
-__declspec(dllexport) void EOS_Sanctions_CopyPlayerSanctionByIndex() {}
-__declspec(dllexport) void EOS_Sanctions_CreatePlayerSanctionAppeal() {}
-__declspec(dllexport) void EOS_Sanctions_GetPlayerSanctionCount() {}
-__declspec(dllexport) void EOS_Sanctions_PlayerSanction_Release() {}
-__declspec(dllexport) void EOS_Sanctions_QueryActivePlayerSanctions() {}
-__declspec(dllexport) void EOS_SessionDetails_Attribute_Release() {}
-__declspec(dllexport) void EOS_SessionDetails_CopyInfo() {}
-__declspec(dllexport) void EOS_SessionDetails_CopySessionAttributeByIndex() {}
-__declspec(dllexport) void EOS_SessionDetails_CopySessionAttributeByKey() {}
-__declspec(dllexport) void EOS_SessionDetails_GetSessionAttributeCount() {}
-__declspec(dllexport) void EOS_SessionDetails_Info_Release() {}
-__declspec(dllexport) void EOS_SessionDetails_Release() {}
-__declspec(dllexport) void EOS_SessionModification_AddAttribute() {}
-__declspec(dllexport) void EOS_SessionModification_Release() {}
-__declspec(dllexport) void EOS_SessionModification_RemoveAttribute() {}
-__declspec(dllexport) void EOS_SessionModification_SetAllowedPlatformIds() {}
-__declspec(dllexport) void EOS_SessionModification_SetBucketId() {}
-__declspec(dllexport) void EOS_SessionModification_SetHostAddress() {}
-__declspec(dllexport) void EOS_SessionModification_SetInvitesAllowed() {}
-__declspec(dllexport) void EOS_SessionModification_SetJoinInProgressAllowed() {}
-__declspec(dllexport) void EOS_SessionModification_SetMaxPlayers() {}
-__declspec(dllexport) void EOS_SessionModification_SetPermissionLevel() {}
-__declspec(dllexport) void EOS_SessionSearch_CopySearchResultByIndex() {}
-__declspec(dllexport) void EOS_SessionSearch_Find() {}
-__declspec(dllexport) void EOS_SessionSearch_GetSearchResultCount() {}
-__declspec(dllexport) void EOS_SessionSearch_Release() {}
-__declspec(dllexport) void EOS_SessionSearch_RemoveParameter() {}
-__declspec(dllexport) void EOS_SessionSearch_SetMaxResults() {}
-__declspec(dllexport) void EOS_SessionSearch_SetParameter() {}
-__declspec(dllexport) void EOS_SessionSearch_SetSessionId() {}
-__declspec(dllexport) void EOS_SessionSearch_SetTargetUserId() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifyJoinSessionAccepted() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifyLeaveSessionRequested() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifySendSessionNativeInviteRequested() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifySessionInviteAccepted() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifySessionInviteReceived() {}
-__declspec(dllexport) void EOS_Sessions_AddNotifySessionInviteRejected() {}
-__declspec(dllexport) void EOS_Sessions_CopyActiveSessionHandle() {}
-__declspec(dllexport) void EOS_Sessions_CopySessionHandleByInviteId() {}
-__declspec(dllexport) void EOS_Sessions_CopySessionHandleByUiEventId() {}
-__declspec(dllexport) void EOS_Sessions_CopySessionHandleForPresence() {}
-__declspec(dllexport) void EOS_Sessions_CreateSessionModification() {}
-__declspec(dllexport) void EOS_Sessions_CreateSessionSearch() {}
-__declspec(dllexport) void EOS_Sessions_DestroySession() {}
-__declspec(dllexport) void EOS_Sessions_DumpSessionState() {}
-__declspec(dllexport) void EOS_Sessions_EndSession() {}
-__declspec(dllexport) void EOS_Sessions_GetInviteCount() {}
-__declspec(dllexport) void EOS_Sessions_GetInviteIdByIndex() {}
-__declspec(dllexport) void EOS_Sessions_IsUserInSession() {}
-__declspec(dllexport) void EOS_Sessions_JoinSession() {}
-__declspec(dllexport) void EOS_Sessions_QueryInvites() {}
-__declspec(dllexport) void EOS_Sessions_RegisterPlayers() {}
-__declspec(dllexport) void EOS_Sessions_RejectInvite() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifyJoinSessionAccepted() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifyLeaveSessionRequested() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifySendSessionNativeInviteRequested() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifySessionInviteAccepted() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifySessionInviteReceived() {}
-__declspec(dllexport) void EOS_Sessions_RemoveNotifySessionInviteRejected() {}
-__declspec(dllexport) void EOS_Sessions_SendInvite() {}
-__declspec(dllexport) void EOS_Sessions_StartSession() {}
-__declspec(dllexport) void EOS_Sessions_UnregisterPlayers() {}
-__declspec(dllexport) void EOS_Sessions_UpdateSession() {}
-__declspec(dllexport) void EOS_Sessions_UpdateSessionModification() {}
-__declspec(dllexport) void EOS_Shutdown() {}
-__declspec(dllexport) void EOS_Stats_CopyStatByIndex() {}
-__declspec(dllexport) void EOS_Stats_CopyStatByName() {}
-__declspec(dllexport) void EOS_Stats_GetStatsCount() {}
-__declspec(dllexport) void EOS_Stats_IngestStat() {}
-__declspec(dllexport) void EOS_Stats_QueryStats() {}
-__declspec(dllexport) void EOS_Stats_Stat_Release() {}
-__declspec(dllexport) void EOS_TitleStorageFileTransferRequest_CancelRequest() {}
-__declspec(dllexport) void EOS_TitleStorageFileTransferRequest_GetFileRequestState() {}
-__declspec(dllexport) void EOS_TitleStorageFileTransferRequest_GetFilename() {}
-__declspec(dllexport) void EOS_TitleStorageFileTransferRequest_Release() {}
-__declspec(dllexport) void EOS_TitleStorage_CopyFileMetadataAtIndex() {}
-__declspec(dllexport) void EOS_TitleStorage_CopyFileMetadataByFilename() {}
-__declspec(dllexport) void EOS_TitleStorage_DeleteCache() {}
-__declspec(dllexport) void EOS_TitleStorage_FileMetadata_Release() {}
-__declspec(dllexport) void EOS_TitleStorage_GetFileMetadataCount() {}
-__declspec(dllexport) void EOS_TitleStorage_QueryFile() {}
-__declspec(dllexport) void EOS_TitleStorage_QueryFileList() {}
-__declspec(dllexport) void EOS_TitleStorage_ReadFile() {}
-__declspec(dllexport) void EOS_UI_AcknowledgeEventId() {}
-__declspec(dllexport) void EOS_UI_AddNotifyDisplaySettingsUpdated() {}
-__declspec(dllexport) void EOS_UI_AddNotifyMemoryMonitor() {}
-__declspec(dllexport) void EOS_UI_GetFriendsExclusiveInput() {}
-__declspec(dllexport) void EOS_UI_GetFriendsVisible() {}
-__declspec(dllexport) void EOS_UI_GetNotificationLocationPreference() {}
-__declspec(dllexport) void EOS_UI_GetToggleFriendsButton() {}
-__declspec(dllexport) void EOS_UI_GetToggleFriendsKey() {}
-__declspec(dllexport) void EOS_UI_HideFriends() {}
-__declspec(dllexport) void EOS_UI_IsSocialOverlayPaused() {}
-__declspec(dllexport) void EOS_UI_IsValidButtonCombination() {}
-__declspec(dllexport) void EOS_UI_IsValidKeyCombination() {}
-__declspec(dllexport) void EOS_UI_PauseSocialOverlay() {}
-__declspec(dllexport) void EOS_UI_PrePresent() {}
-__declspec(dllexport) void EOS_UI_RemoveNotifyDisplaySettingsUpdated() {}
-__declspec(dllexport) void EOS_UI_RemoveNotifyMemoryMonitor() {}
-__declspec(dllexport) void EOS_UI_ReportInputState() {}
-__declspec(dllexport) void EOS_UI_SetDisplayPreference() {}
-__declspec(dllexport) void EOS_UI_SetToggleFriendsButton() {}
-__declspec(dllexport) void EOS_UI_SetToggleFriendsKey() {}
-__declspec(dllexport) void EOS_UI_ShowBlockPlayer() {}
-__declspec(dllexport) void EOS_UI_ShowFriends() {}
-__declspec(dllexport) void EOS_UI_ShowNativeProfile() {}
-__declspec(dllexport) void EOS_UI_ShowReportPlayer() {}
-__declspec(dllexport) void EOS_UserInfo_BestDisplayName_Release() {}
-__declspec(dllexport) void EOS_UserInfo_CopyBestDisplayName() {}
-__declspec(dllexport) void EOS_UserInfo_CopyBestDisplayNameWithPlatform() {}
-__declspec(dllexport) void EOS_UserInfo_CopyExternalUserInfoByAccountId() {}
-__declspec(dllexport) void EOS_UserInfo_CopyExternalUserInfoByAccountType() {}
-__declspec(dllexport) void EOS_UserInfo_CopyExternalUserInfoByIndex() {}
-__declspec(dllexport) void EOS_UserInfo_CopyUserInfo() {}
-__declspec(dllexport) void EOS_UserInfo_ExternalUserInfo_Release() {}
-__declspec(dllexport) void EOS_UserInfo_GetExternalUserInfoCount() {}
-__declspec(dllexport) void EOS_UserInfo_GetLocalPlatformType() {}
-__declspec(dllexport) void EOS_UserInfo_QueryUserInfo() {}
-__declspec(dllexport) void EOS_UserInfo_QueryUserInfoByDisplayName() {}
-__declspec(dllexport) void EOS_UserInfo_QueryUserInfoByExternalAccount() {}
-__declspec(dllexport) void EOS_UserInfo_Release() {}
+__declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlocked(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_AddNotifyAchievementsUnlockedV2(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionByAchievementId(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionV2ByAchievementId(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyAchievementDefinitionV2ByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyPlayerAchievementByAchievementId(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyPlayerAchievementByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyUnlockedAchievementByAchievementId(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_CopyUnlockedAchievementByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_DefinitionV2_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_Definition_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_GetAchievementDefinitionCount(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_GetPlayerAchievementCount(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_GetUnlockedAchievementCount(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_PlayerAchievement_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_QueryDefinitions(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_QueryPlayerAchievements(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_RemoveNotifyAchievementsUnlocked(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_UnlockAchievements(...) { return 0; }
+__declspec(dllexport) int EOS_Achievements_UnlockedAchievement_Release(...) { return 0; }
+__declspec(dllexport) int EOS_ActiveSession_CopyInfo(...) { return 0; }
+__declspec(dllexport) int EOS_ActiveSession_GetRegisteredPlayerByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_ActiveSession_GetRegisteredPlayerCount(...) { return 0; }
+__declspec(dllexport) int EOS_ActiveSession_Info_Release(...) { return 0; }
+__declspec(dllexport) int EOS_ActiveSession_Release(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddExternalIntegrityCatalog(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddNotifyClientIntegrityViolated(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddNotifyMessageToPeer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddNotifyMessageToServer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddNotifyPeerActionRequired(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_AddNotifyPeerAuthStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_BeginSession(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_EndSession(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_GetProtectMessageOutputLength(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_PollStatus(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_ProtectMessage(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_ReceiveMessageFromPeer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_ReceiveMessageFromServer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RegisterPeer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RemoveNotifyClientIntegrityViolated(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RemoveNotifyMessageToPeer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RemoveNotifyMessageToServer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RemoveNotifyPeerActionRequired(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_RemoveNotifyPeerAuthStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_UnprotectMessage(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatClient_UnregisterPeer(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_AddNotifyClientActionRequired(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_AddNotifyClientAuthStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_AddNotifyMessageToClient(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_BeginSession(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_EndSession(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_GetProtectMessageOutputLength(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogEvent(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogGameRoundEnd(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogGameRoundStart(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerDespawn(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerRevive(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerSpawn(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerTakeDamage(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerTick(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerUseAbility(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_LogPlayerUseWeapon(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_ProtectMessage(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_ReceiveMessageFromClient(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_RegisterClient(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_RegisterEvent(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_RemoveNotifyClientActionRequired(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_RemoveNotifyClientAuthStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_RemoveNotifyMessageToClient(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_SetClientDetails(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_SetClientNetworkState(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_SetGameSessionId(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_UnprotectMessage(...) { return 0; }
+__declspec(dllexport) int EOS_AntiCheatServer_UnregisterClient(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_CreateNewInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_CreateNewOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_DestroyInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_DestroyOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_EnableCommunicationsModeOutputDevices(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_GetInputDeviceInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_GetInputStreamInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_GetOutputDeviceInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_GetOutputStreamInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_IsInputStreamDeviceDisconnected(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_IsInputStreamSilent(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_QueryInputDevices(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_QueryOutputDevices(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_RegisterUser(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_RemoveNotifyDevicesChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_SetFeatureEnabledForInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_SetNotifyDevicesChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_StartInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_StartOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_StopInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_StopOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_Audio_UnregisterUser(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_AddNotifyLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) void* EOS_Auth_CopyIdToken(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_CopyUserAuthToken(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Auth_DeletePersistentAuth(...) { return 0; }
+__declspec(dllexport) void* EOS_Auth_GetLoggedInAccountByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_GetLoggedInAccountsCount(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_GetLoginStatus(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_GetMergedAccountByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_GetMergedAccountsCount(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Auth_GetSelectedAccountId(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Auth_IdToken_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_LinkAccount(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_Login(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_Logout(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_QueryIdToken(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_RemoveNotifyLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_Token_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_VerifyIdToken(...) { return 0; }
+__declspec(dllexport) int EOS_Auth_VerifyUserAuth(...) { return 0; }
+__declspec(dllexport) int EOS_BeginScopeEvent(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_CreateNewInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_CreateNewOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_DestroyInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_DestroyOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_GetCurrentGainLevel(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_GetCurrentMicAmplitude(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_GetInputStreamInfo(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_GetOutputStreamInfo(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_PushPacketToOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_SetEncoderSettings(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_SetMicProcessingSettings(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_StartInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_StartOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_StopInputStream(...) { return 0; }
+__declspec(dllexport) int EOS_BroadcastAudio_StopOutputStream(...) { return 0; }
+__declspec(dllexport) int EOS_ByteArray_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_AddNotifyAuthExpiration(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_AddNotifyLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CopyIdToken(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CopyProductUserExternalAccountByAccountId(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CopyProductUserExternalAccountByAccountType(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CopyProductUserExternalAccountByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CopyProductUserInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CreateDeviceId(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_CreateUser(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_DeleteDeviceId(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_ExternalAccountInfo_Release(...) { return 0; }
+__declspec(dllexport) void* EOS_Connect_GetExternalAccountMapping(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Connect_GetLoggedInUserByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Connect_GetLoggedInUsersCount(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Connect_GetLoginStatus(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Connect_GetProductUserExternalAccountCount(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Connect_GetProductUserIdMapping(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Connect_IdToken_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_LinkAccount(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_Login(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_Logout(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_QueryExternalAccountMappings(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_QueryProductUserIdMappings(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_RemoveNotifyAuthExpiration(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_RemoveNotifyLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_TransferDeviceIdAccount(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_UnlinkAccount(...) { return 0; }
+__declspec(dllexport) int EOS_Connect_VerifyIdToken(...) { return 0; }
+__declspec(dllexport) int EOS_ContinuanceToken_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AcceptRequestToJoin(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyCustomInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyCustomInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyCustomInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyRequestToJoinAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyRequestToJoinReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyRequestToJoinRejected(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifyRequestToJoinResponseReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_AddNotifySendCustomNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_FinalizeInvite(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RejectRequestToJoin(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyCustomInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyCustomInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyCustomInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyRequestToJoinAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyRequestToJoinReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyRequestToJoinRejected(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifyRequestToJoinResponseReceived(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_RemoveNotifySendCustomNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_SendCustomInvite(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_SendRequestToJoin(...) { return 0; }
+__declspec(dllexport) int EOS_CustomInvites_SetCustomInvite(...) { return 0; }
+__declspec(dllexport) int EOS_EApplicationStatus_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_ENetworkStatus_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_EResult_IsOperationComplete(...) { return 0; }
+__declspec(dllexport) int EOS_EResult_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_CatalogItem_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_CatalogOffer_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_CatalogRelease_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_Checkout(...) { return 0; }
+__declspec(dllexport) void* EOS_Ecom_CopyEntitlementById(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyEntitlementByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyEntitlementByNameAndIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyItemById(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyItemImageInfoByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyItemReleaseByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyLastRedeemedEntitlementByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyOfferById(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyOfferByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyOfferImageInfoByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyOfferItemByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyTransactionById(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Ecom_CopyTransactionByIndex(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Ecom_Entitlement_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetEntitlementsByNameCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetEntitlementsCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetItemImageInfoCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetItemReleaseCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetLastRedeemedEntitlementsCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetOfferCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetOfferImageInfoCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetOfferItemCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_GetTransactionCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_KeyImageInfo_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryEntitlementToken(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryEntitlements(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryOffers(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryOwnership(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryOwnershipBySandboxIds(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_QueryOwnershipToken(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_RedeemEntitlements(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_Transaction_CopyEntitlementByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_Transaction_GetEntitlementsCount(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_Transaction_GetTransactionId(...) { return 0; }
+__declspec(dllexport) int EOS_Ecom_Transaction_Release(...) { return 0; }
+__declspec(dllexport) int EOS_EndScopeEvent(...) { return 0; }
+__declspec(dllexport) int EOS_EpicAccountId_FromString(...) { return 0; }
+__declspec(dllexport) int EOS_EpicAccountId_IsValid(...) { return 0; }
+__declspec(dllexport) int EOS_EpicAccountId_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_AcceptInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_AddNotifyBlockedUsersUpdate(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_AddNotifyFriendsUpdate(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_GetBlockedUserAtIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_GetBlockedUsersCount(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_GetFriendAtIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_GetFriendsCount(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_GetStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_QueryFriends(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_RejectInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_RemoveNotifyBlockedUsersUpdate(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_RemoveNotifyFriendsUpdate(...) { return 0; }
+__declspec(dllexport) int EOS_Friends_SendInvite(...) { return 0; }
+__declspec(dllexport) int EOS_GetVersion(...) { return 0; }
+__declspec(dllexport) int EOS_Initialize(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatformOptionsContainer_Add(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatformOptionsContainer_Release(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_AddNotifyUserLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_ClearUserPreLogoutCallback(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_CreateIntegratedPlatformOptionsContainer(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_FinalizeDeferredUserLogout(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_RemoveNotifyUserLoginStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_SetUserLoginStatus(...) { return 0; }
+__declspec(dllexport) int EOS_IntegratedPlatform_SetUserPreLogoutCallback(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_AddNotifyPermissionsUpdateReceived(...) { return 0; }
+__declspec(dllexport) void* EOS_KWS_CopyPermissionByIndex(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_KWS_CreateUser(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_GetPermissionByKey(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_GetPermissionsCount(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_PermissionStatus_Release(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_QueryAgeGate(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_QueryPermissions(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_RemoveNotifyPermissionsUpdateReceived(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_RequestPermissions(...) { return 0; }
+__declspec(dllexport) int EOS_KWS_UpdateParentEmail(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardDefinitionByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardDefinitionByLeaderboardId(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardRecordByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardRecordByUserId(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardUserScoreByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_CopyLeaderboardUserScoreByUserId(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_Definition_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_GetLeaderboardDefinitionCount(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_GetLeaderboardRecordCount(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_GetLeaderboardUserScoreCount(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_LeaderboardDefinition_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_LeaderboardRecord_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_LeaderboardUserScore_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_QueryLeaderboardDefinitions(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_QueryLeaderboardRanks(...) { return 0; }
+__declspec(dllexport) int EOS_Leaderboards_QueryLeaderboardUserScores(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyAttributeByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyAttributeByKey(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyInfo(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyMemberAttributeByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyMemberAttributeByKey(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_CopyMemberInfo(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_GetAttributeCount(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_GetLobbyOwner(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_GetMemberAttributeCount(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_GetMemberByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_GetMemberCount(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_Info_Release(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_MemberInfo_Release(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyDetails_Release(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_AddAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_AddMemberAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_Release(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_RemoveAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_RemoveMemberAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_SetAllowedPlatformIds(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_SetBucketId(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_SetInvitesAllowed(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_SetMaxMembers(...) { return 0; }
+__declspec(dllexport) int EOS_LobbyModification_SetPermissionLevel(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_CopySearchResultByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_Find(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_GetSearchResultCount(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_Release(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_RemoveParameter(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_SetLobbyId(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_SetMaxResults(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_SetParameter(...) { return 0; }
+__declspec(dllexport) int EOS_LobbySearch_SetTargetUserId(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyJoinLobbyAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLeaveLobbyRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyMemberStatusReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyMemberUpdateReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyLobbyUpdateReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifyRTCRoomConnectionChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_AddNotifySendLobbyNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_Attribute_Release(...) { return 0; }
+__declspec(dllexport) void* EOS_Lobby_CopyLobbyDetailsHandle(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Lobby_CopyLobbyDetailsHandleByInviteId(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_Lobby_CopyLobbyDetailsHandleByUiEventId(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Lobby_CreateLobby(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_CreateLobbySearch(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_DestroyLobby(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_GetConnectString(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_GetInviteCount(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_GetInviteIdByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_GetRTCRoomName(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_HardMuteMember(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_IsRTCRoomConnected(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_JoinLobby(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_JoinLobbyById(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_KickMember(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_LeaveLobby(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_ParseConnectString(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_PromoteMember(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_QueryInvites(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RejectInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyJoinLobbyAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLeaveLobbyRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyMemberStatusReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyMemberUpdateReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyLobbyUpdateReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifyRTCRoomConnectionChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_RemoveNotifySendLobbyNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_SendInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_UpdateLobby(...) { return 0; }
+__declspec(dllexport) int EOS_Lobby_UpdateLobbyModification(...) { return 0; }
+__declspec(dllexport) int EOS_Logging_SetCallback(...) { return 0; }
+__declspec(dllexport) int EOS_Logging_SetLogLevel(...) { return 0; }
+__declspec(dllexport) int EOS_Mercury_Initialize(...) { return 0; }
+__declspec(dllexport) int EOS_Mercury_Shutdown(...) { return 0; }
+__declspec(dllexport) int EOS_Mercury_Tick(...) { return 0; }
+__declspec(dllexport) int EOS_Metrics_BeginPlayerSession(...) { return 0; }
+__declspec(dllexport) int EOS_Metrics_EndPlayerSession(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_CopyModInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_EnumerateMods(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_InstallMod(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_ModInfo_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_UninstallMod(...) { return 0; }
+__declspec(dllexport) int EOS_Mods_UpdateMod(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AcceptConnection(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AddNotifyIncomingPacketQueueFull(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AddNotifyPeerConnectionClosed(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AddNotifyPeerConnectionEstablished(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AddNotifyPeerConnectionInterrupted(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_AddNotifyPeerConnectionRequest(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_ClearPacketQueue(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_CloseConnection(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_CloseConnections(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_GetNATType(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_GetNextReceivedPacketSize(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_GetPacketQueueInfo(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_GetPortRange(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_GetRelayControl(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_QueryNATType(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_ReceivePacket(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_RemoveNotifyIncomingPacketQueueFull(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_RemoveNotifyPeerConnectionClosed(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_RemoveNotifyPeerConnectionEstablished(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_RemoveNotifyPeerConnectionInterrupted(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_RemoveNotifyPeerConnectionRequest(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_SendPacket(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_SetPacketQueueSize(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_SetPortRange(...) { return 0; }
+__declspec(dllexport) int EOS_P2P_SetRelayControl(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_CheckForLauncherAndRestart(...) { return 0; }
+__declspec(dllexport) void* EOS_Platform_Create(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_Platform_GetAchievementsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetActiveCountryCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetActiveLocaleCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetAntiCheatClientInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetAntiCheatServerInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetApplicationStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetAuthInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetConnectInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetCustomInvitesInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetDesktopCrossplayStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetEcomInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetFriendsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetIntegratedPlatformInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetKWSInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetLeaderboardsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetLobbyInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetMetricsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetModsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetNetworkStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetOverrideCountryCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetOverrideLocaleCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetP2PInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetPlayerDataStorageInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetPresenceInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetProgressionSnapshotInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetRTCAdminInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetRTCInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetReportsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetSanctionsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetSessionsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetStatsInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetTitleStorageInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetUIInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_GetUserInfoInterface(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_SetApplicationStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_SetNetworkStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_SetOverrideCountryCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_SetOverrideLocaleCode(...) { return 0; }
+__declspec(dllexport) int EOS_Platform_Tick(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorageFileTransferRequest_CancelRequest(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorageFileTransferRequest_GetFileRequestState(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorageFileTransferRequest_GetFilename(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorageFileTransferRequest_Release(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_CopyFileMetadataAtIndex(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_CopyFileMetadataByFilename(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_DeleteCache(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_DeleteFile(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_DuplicateFile(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_FileMetadata_Release(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_GetFileMetadataCount(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_QueryFile(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_QueryFileList(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_ReadFile(...) { return 0; }
+__declspec(dllexport) int EOS_PlayerDataStorage_WriteFile(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_DeleteData(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_Release(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_SetData(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_SetJoinInfo(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_SetRawRichText(...) { return 0; }
+__declspec(dllexport) int EOS_PresenceModification_SetStatus(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_AddNotifyJoinGameAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_AddNotifyOnPresenceChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_CopyPresence(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_CreatePresenceModification(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_GetJoinInfo(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_HasPresence(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_Info_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_QueryPresence(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_RemoveNotifyJoinGameAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_RemoveNotifyOnPresenceChanged(...) { return 0; }
+__declspec(dllexport) int EOS_Presence_SetPresence(...) { return 0; }
+__declspec(dllexport) int EOS_ProductUserId_FromString(...) { return 0; }
+__declspec(dllexport) int EOS_ProductUserId_IsValid(...) { return 0; }
+__declspec(dllexport) int EOS_ProductUserId_ToString(...) { return 0; }
+__declspec(dllexport) int EOS_ProgressionSnapshot_AddProgression(...) { return 0; }
+__declspec(dllexport) int EOS_ProgressionSnapshot_BeginSnapshot(...) { return 0; }
+__declspec(dllexport) int EOS_ProgressionSnapshot_DeleteSnapshot(...) { return 0; }
+__declspec(dllexport) int EOS_ProgressionSnapshot_EndSnapshot(...) { return 0; }
+__declspec(dllexport) int EOS_ProgressionSnapshot_SubmitSnapshot(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_CopyUserTokenByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_CopyUserTokenByUserId(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_Kick(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_QueryJoinRoomToken(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_SetParticipantHardMute(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAdmin_UserToken_Release(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyAudioBeforeRender(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyAudioBeforeSend(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyAudioDevicesChanged(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyAudioInputState(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyAudioOutputState(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_AddNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_CopyInputDeviceInformationByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_CopyOutputDeviceInformationByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetAudioInputDeviceByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetAudioInputDevicesCount(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetAudioOutputDeviceByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetAudioOutputDevicesCount(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetInputDevicesCount(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_GetOutputDevicesCount(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_InputDeviceInformation_Release(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_OutputDeviceInformation_Release(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_QueryInputDevicesInformation(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_QueryOutputDevicesInformation(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RegisterPlatformAudioUser(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RegisterPlatformUser(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyAudioBeforeRender(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyAudioBeforeSend(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyAudioDevicesChanged(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyAudioInputState(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyAudioOutputState(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_RemoveNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SendAudio(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SetAudioInputSettings(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SetAudioOutputSettings(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SetInputDeviceSettings(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SetOutputDeviceSettings(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_SetPosition(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UnregisterPlatformAudioUser(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UnregisterPlatformUser(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UpdateParticipantVolume(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UpdateReceiving(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UpdateReceivingVolume(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UpdateSending(...) { return 0; }
+__declspec(dllexport) int EOS_RTCAudio_UpdateSendingVolume(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_AddNotifyDataReceived(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_AddNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_RemoveNotifyDataReceived(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_RemoveNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_SendData(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_UpdateReceiving(...) { return 0; }
+__declspec(dllexport) int EOS_RTCData_UpdateSending(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_AddNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_AddNotifyVideoReceived(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_CreateOutgoingVideoFrameFormat(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_RemoveNotifyParticipantUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_RemoveNotifyVideoReceived(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_SendVideo(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_SetAdaptVideoFrameCallback(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_SetVideoAllocationCallback(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_SetVideoReleaseCallback(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_UpdateReceiving(...) { return 0; }
+__declspec(dllexport) int EOS_RTCVideo_UpdateSending(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_AddNotifyDisconnected(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_AddNotifyParticipantStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_AddNotifyRoomStatisticsUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_BlockParticipant(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_GetAudioInterface(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_GetDataInterface(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_JoinRoom(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_LeaveRoom(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_RemoveNotifyDisconnected(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_RemoveNotifyParticipantStatusChanged(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_RemoveNotifyRoomStatisticsUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_SetRoomSetting(...) { return 0; }
+__declspec(dllexport) int EOS_RTC_SetSetting(...) { return 0; }
+__declspec(dllexport) int EOS_Reports_SendPlayerBehaviorReport(...) { return 0; }
+__declspec(dllexport) int EOS_Sanctions_CopyPlayerSanctionByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Sanctions_CreatePlayerSanctionAppeal(...) { return 0; }
+__declspec(dllexport) int EOS_Sanctions_GetPlayerSanctionCount(...) { return 0; }
+__declspec(dllexport) int EOS_Sanctions_PlayerSanction_Release(...) { return 0; }
+__declspec(dllexport) int EOS_Sanctions_QueryActivePlayerSanctions(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_Attribute_Release(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_CopyInfo(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_CopySessionAttributeByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_CopySessionAttributeByKey(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_GetSessionAttributeCount(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_Info_Release(...) { return 0; }
+__declspec(dllexport) int EOS_SessionDetails_Release(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_AddAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_Release(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_RemoveAttribute(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetAllowedPlatformIds(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetBucketId(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetHostAddress(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetInvitesAllowed(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetJoinInProgressAllowed(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetMaxPlayers(...) { return 0; }
+__declspec(dllexport) int EOS_SessionModification_SetPermissionLevel(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_CopySearchResultByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_Find(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_GetSearchResultCount(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_Release(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_RemoveParameter(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_SetMaxResults(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_SetParameter(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_SetSessionId(...) { return 0; }
+__declspec(dllexport) int EOS_SessionSearch_SetTargetUserId(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifyJoinSessionAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifyLeaveSessionRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifySendSessionNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifySessionInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifySessionInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_AddNotifySessionInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CopyActiveSessionHandle(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CopySessionHandleByInviteId(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CopySessionHandleByUiEventId(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CopySessionHandleForPresence(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CreateSessionModification(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_CreateSessionSearch(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_DestroySession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_DumpSessionState(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_EndSession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_GetInviteCount(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_GetInviteIdByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_IsUserInSession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_JoinSession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_QueryInvites(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RegisterPlayers(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RejectInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifyJoinSessionAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifyLeaveSessionRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifySendSessionNativeInviteRequested(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifySessionInviteAccepted(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifySessionInviteReceived(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_RemoveNotifySessionInviteRejected(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_SendInvite(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_StartSession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_UnregisterPlayers(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_UpdateSession(...) { return 0; }
+__declspec(dllexport) int EOS_Sessions_UpdateSessionModification(...) { return 0; }
+__declspec(dllexport) int EOS_Shutdown(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_CopyStatByIndex(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_CopyStatByName(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_GetStatsCount(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_IngestStat(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_QueryStats(...) { return 0; }
+__declspec(dllexport) int EOS_Stats_Stat_Release(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorageFileTransferRequest_CancelRequest(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorageFileTransferRequest_GetFileRequestState(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorageFileTransferRequest_GetFilename(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorageFileTransferRequest_Release(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_CopyFileMetadataAtIndex(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_CopyFileMetadataByFilename(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_DeleteCache(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_FileMetadata_Release(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_GetFileMetadataCount(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_QueryFile(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_QueryFileList(...) { return 0; }
+__declspec(dllexport) int EOS_TitleStorage_ReadFile(...) { return 0; }
+__declspec(dllexport) int EOS_UI_AcknowledgeEventId(...) { return 0; }
+__declspec(dllexport) int EOS_UI_AddNotifyDisplaySettingsUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_UI_AddNotifyMemoryMonitor(...) { return 0; }
+__declspec(dllexport) int EOS_UI_GetFriendsExclusiveInput(...) { return 0; }
+__declspec(dllexport) int EOS_UI_GetFriendsVisible(...) { return 0; }
+__declspec(dllexport) int EOS_UI_GetNotificationLocationPreference(...) { return 0; }
+__declspec(dllexport) int EOS_UI_GetToggleFriendsButton(...) { return 0; }
+__declspec(dllexport) int EOS_UI_GetToggleFriendsKey(...) { return 0; }
+__declspec(dllexport) int EOS_UI_HideFriends(...) { return 0; }
+__declspec(dllexport) int EOS_UI_IsSocialOverlayPaused(...) { return 0; }
+__declspec(dllexport) int EOS_UI_IsValidButtonCombination(...) { return 0; }
+__declspec(dllexport) int EOS_UI_IsValidKeyCombination(...) { return 0; }
+__declspec(dllexport) int EOS_UI_PauseSocialOverlay(...) { return 0; }
+__declspec(dllexport) int EOS_UI_PrePresent(...) { return 0; }
+__declspec(dllexport) int EOS_UI_RemoveNotifyDisplaySettingsUpdated(...) { return 0; }
+__declspec(dllexport) int EOS_UI_RemoveNotifyMemoryMonitor(...) { return 0; }
+__declspec(dllexport) int EOS_UI_ReportInputState(...) { return 0; }
+__declspec(dllexport) int EOS_UI_SetDisplayPreference(...) { return 0; }
+__declspec(dllexport) int EOS_UI_SetToggleFriendsButton(...) { return 0; }
+__declspec(dllexport) int EOS_UI_SetToggleFriendsKey(...) { return 0; }
+__declspec(dllexport) int EOS_UI_ShowBlockPlayer(...) { return 0; }
+__declspec(dllexport) int EOS_UI_ShowFriends(...) { return 0; }
+__declspec(dllexport) int EOS_UI_ShowNativeProfile(...) { return 0; }
+__declspec(dllexport) int EOS_UI_ShowReportPlayer(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_BestDisplayName_Release(...) { return 0; }
+__declspec(dllexport) void* EOS_UserInfo_CopyBestDisplayName(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_UserInfo_CopyBestDisplayNameWithPlatform(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_UserInfo_CopyExternalUserInfoByAccountId(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_UserInfo_CopyExternalUserInfoByAccountType(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_UserInfo_CopyExternalUserInfoByIndex(...) { return dummyPtr; }
+__declspec(dllexport) void* EOS_UserInfo_CopyUserInfo(...) { return dummyPtr; }
+__declspec(dllexport) int EOS_UserInfo_ExternalUserInfo_Release(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_GetExternalUserInfoCount(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_GetLocalPlatformType(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_QueryUserInfo(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_QueryUserInfoByDisplayName(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_QueryUserInfoByExternalAccount(...) { return 0; }
+__declspec(dllexport) int EOS_UserInfo_Release(...) { return 0; }
 
 }
